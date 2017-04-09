@@ -1,0 +1,21 @@
+project.ext {
+    offline = 'false'
+    javaVersion = JavaVersion.VERSION_1_8
+
+
+    springBootVersion = '1.5.1.RELEASE'
+    springVersion = '4.3.6.RELEASE'
+    c3p0Version = '0.9.2'
+    
+
+    junitDependency = 'junit:junit-dep:4.11'
+
+
+
+    h2DbVersion = '1.4.191'
+    c3p0Version = '0.9.5.2'
+    lombokVersion = '1.16.6'
+    halBrowserVersion = '2.5.3.RELEASE'
+
+
+}

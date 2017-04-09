@@ -1,0 +1,56 @@
+apply plugin: 'spring-boot'
+
+
+dependencies {
+
+
+    compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-actuator-docs:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-test:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-data-rest:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
+    compile("org.springframework.data:spring-data-rest-hal-browser:$halBrowserVersion")
+
+    compile("org.projectlombok:lombok:$lombokVersion")
+
+
+    compile("com.h2database:h2:+")
+
+    compile("com.mchange:c3p0:$c3p0Version")
+
+
+
+    testCompile 'junit:junit:4.12'
+    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+}
+
+springBoot {
+    mainClass = "com.java.summer.Application"
+}
+
+bootRun {
+
+    jvmArgs = ["-Xms512m", "-Xmx512m"]
+
+}
+
+def shortSha() {
+    project.gitSha.substring(0, 7)
+}
+
+task setVersion {
+    if ("$version" != "unspecified") {
+        version = "$version"
+    } else {
+        version = '1.0.0-LOCAL'
+    }
+}
+
+jar {
+    baseName = 'spring-data-rest-jpa'
+    version = "$version"
+}
+
+
+
